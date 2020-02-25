@@ -8,9 +8,9 @@
       <li class="nav-item">
         <a class="nav-link" href="employee">員工資料</a>
       </li>
-      <li class="nav-item">
+      <!--<li class="nav-item">
         <a class="nav-link" href="date">查詢日期</a>
-      </li>
+      </li>-->
        <li class="nav-item">
         <a class="nav-link" href="new">新增員工資料</a>
       </li> 
