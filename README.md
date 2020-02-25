@@ -5,7 +5,7 @@
 + 工作日期
 + 時數
 
-![date]https://upload.cc/i1/2020/02/25/xg9z12.png "https://upload.cc/i1/2020/02/25/xg9z12.png") 
+![date]https://upload.cc/i1/2020/02/25/xg9z12.png) 
 ===
 ### 功能
 1. 新增/刪除員工資料
