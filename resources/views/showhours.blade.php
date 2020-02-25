@@ -17,6 +17,7 @@
             </thead>
             <tbody>
                 <tr>
+                <th>
                 <?php 
                 $m = $_GET['month'];
                 $d = $_GET['day'];
@@ -39,6 +40,7 @@
                     echo $emp->Name;
                 }*/
                 ?>
+                </th>
                 </tr>
 
     
