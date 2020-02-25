@@ -17,31 +17,34 @@
             </thead>
             <tbody>
                 <tr>
-                <th>
                 <?php 
-                $m = $_GET['month'];
-                $d = $_GET['day'];
-                
-                foreach ($hours as $hour) {
-                    if ( $m == substr($hour->date_id,5,2) and $d == substr($hour->date_id,8,2)){
-                        echo App\Hours::where('date_id','=',$hour->date_id)->get();
-                        #$Name = App\Employee::find(1)  $dateempid = ->date->employee_id
-                        echo "123";
-
-                    }
-                    else{
-                        echo "資料不存在";
+                $m = $_GET['month']; #取得從viewhours的month
+                $d = $_GET['day'];  #取得從viewhours的day
+                $count = 0;  //計數是否有資料,0為沒資料,1則有
+                foreach ($hours as $hour) {   
+                    //如果有資料則if成立
+                    if ( $m == substr($hour->date_id,5,2) and $d == substr($hour->date_id,8,2)){  
+                        $emp_ids = App\Date::where('Date','=',$hour->date_id)->get(); #取得資料表Date
+                        $emp_id = $emp_ids[0]["employee_id"]; #取得資料表Date->employee_id
+                        $id = App\Employee::where('id','=',$emp_id)->get();
+                        $Name = $id[0]["Name"];
+                        $count = 1;
+                        echo '<th>'.$Name.'</th>';
+                        echo '<th>'.$hour->date_id.'</th>';
+                        echo '<th>'.$hour->Hours.'</th>';
                     }
                 }
-                
-                /*
-                foreach ($emps as $emp) {
-                    # code...
-                    echo $emp->Name;
-                }*/
+                if($count == 0){   #如果沒有該筆資料
+                    echo "<th>資料不存在</th>";
+                }
                 ?>
-                </th>
                 </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>
 
     
 
