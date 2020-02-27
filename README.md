@@ -20,5 +20,5 @@
 ## 查詢日期 及 送出資料
 ![date](https://upload.cc/i1/2020/02/27/7CXhFQ.png)
 ![houra](https://upload.cc/i1/2020/02/27/Ym2Wps.png)
-##　新增員工資料
+## 新增員工資料
 ![new_employee](https://upload.cc/i1/2020/02/27/QI1AeD.png)
