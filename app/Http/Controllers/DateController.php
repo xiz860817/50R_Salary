@@ -9,7 +9,7 @@ use App\Date;
 class DateController extends Controller
 {
     //
-    public function index(){
+    public function index(){ $a=new Date(); 
         //$dates = Date::all();
         //echo $dates;
 
@@ -25,6 +25,11 @@ class DateController extends Controller
         //foreach ($hour as $hours){
             //echo $hours->Hours;
         //}
-
+        public function delete(Request $request){
+            $dates = Date::where('employee_id',$request->input('employee_id'))
+            ->delete(['id'=>$request->input('id'),
+	    'employee_id'=>$request->input('employee_id'),
+	    'Date'=>$request->input('Date')]);
+        }
 }
 

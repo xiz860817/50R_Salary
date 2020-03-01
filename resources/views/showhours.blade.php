@@ -20,18 +20,19 @@
                 <?php 
                 $m = $_GET['month']; #取得從viewhours的month
                 $d = $_GET['day'];  #取得從viewhours的day
+		            if(strlen($d)==1){$z = 0;$d = $z.$d ;} //把單數的day變成雙數顯示
                 $count = 0;  //計數是否有資料,0為沒資料,1則有
-                foreach ($hours as $hour) {   
+                foreach ($dates as $date) {  
                     //如果有資料則if成立
-                    if ( $m == substr($hour->date_id,5,2) and $d == substr($hour->date_id,8,2)){  
-                        $emp_ids = App\Date::where('Date','=',$hour->date_id)->get(); #取得資料表Date
-                        $emp_id = $emp_ids[0]["employee_id"]; #取得資料表Date->employee_id
-                        $id = App\Employee::where('id','=',$emp_id)->get();
-                        $Name = $id[0]["Name"];
-                        $count = 1;
-                        echo '<th>'.$Name.'</th>';
-                        echo '<th>'.$hour->date_id.'</th>';
-                        echo '<th>'.$hour->Hours.'</th>';
+                    if ( $m == substr($date->Date,5,2) and $d == substr($date->Date,8,2)){  
+                        $date_ids = App\Hours::where('date_id','=',$date->employee_id)->get(); //取得資料表Date
+                        $id = App\Employee::where('id','=',$date->employee_id)->get(); //取的Employee的Name
+                        $Name = $id[0]["Name"];  //取得Employee的Name
+                        $count = 1; 
+                        echo '<th>'.$Name.'</th>';  
+			                  echo '<th>'.$date->Date.'</th>';
+                        echo '<th>'.$date_ids[0]["id"].'</th>';
+			                  echo '</tr>'; //換行
                     }
                 }
                 if($count == 0){   #如果沒有該筆資料
